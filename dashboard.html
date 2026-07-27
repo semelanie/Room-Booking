@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Management Dashboard — NIHSS Room Booking</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="NIHSS logo" class="brand-mark">
+      <span>NIHSS <span class="brand-sub">Room Booking</span></span>
+    </a>
+    <button type="button" class="btn btn-outline btn-sm" id="logoutBtn">Log Out</button>
+  </div>
+</header>
+
+<section class="dash-section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Dashboard</span>
+      <h2>All Bookings</h2>
+      <p>Review room booking requests, track their status, and approve or reject them.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card stat-navy">
+        <div class="stat-text"><span>Total Requests</span><strong id="statTotal">0</strong></div>
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="m8.5 14 2 2 4-4"/></svg></div>
+      </div>
+      <div class="stat-card stat-green">
+        <div class="stat-text"><span>Approved</span><strong id="statApproved">0</strong></div>
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      </div>
+      <div class="stat-card stat-amber">
+        <div class="stat-text"><span>Pending</span><strong id="statPending">0</strong></div>
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      </div>
+      <div class="stat-card stat-red">
+        <div class="stat-text"><span>Rejected</span><strong id="statRejected">0</strong></div>
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="m9 9 6 6M15 9l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      </div>
+    </div>
+
+    <div class="filter-pills" id="filterPills">
+      <button type="button" class="pill active" data-filter="all">All</button>
+      <button type="button" class="pill" data-filter="pending">Pending</button>
+      <button type="button" class="pill" data-filter="approved">Approved</button>
+      <button type="button" class="pill" data-filter="rejected">Rejected</button>
+    </div>
+
+    <div class="filter-pills" id="scopePills">
+      <button type="button" class="pill active" data-scope="all">All Dates</button>
+      <button type="button" class="pill" data-scope="current">Current / Upcoming</button>
+      <button type="button" class="pill" data-scope="history">History</button>
+    </div>
+
+    <div class="dash-toolbar">
+      <button type="button" class="btn btn-outline btn-sm" id="downloadCsvBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Download CSV
+      </button>
+    </div>
+
+    <div class="dash-table-card">
+      <div class="dash-table-scroll">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Activity</th>
+              <th>Date</th>
+              <th>Room</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="dashTableBody">
+            <tr><td colspan="6" class="dash-loading">Loading bookings…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dash-pagination">
+        <span id="pageSummary">Showing 0 of 0 bookings</span>
+        <div class="page-buttons" id="pageButtons"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETAIL MODAL ================= -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-wide">
+    <div class="modal-head">
+      <div>
+        <h3>Booking Details</h3>
+        <p>Full request information.</p>
+      </div>
+      <button class="modal-close" id="detailClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body" id="detailBody"></div>
+  </div>
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

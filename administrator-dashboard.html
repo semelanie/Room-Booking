@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrator Dashboard — NIHSS Room Booking</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="NIHSS logo" class="brand-mark">
+      <span>NIHSS <span class="brand-sub">Room Booking</span></span>
+    </a>
+    <button type="button" class="btn btn-outline btn-sm" id="logoutBtn">Log Out</button>
+  </div>
+</header>
+
+<section class="dash-section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Administrator</span>
+      <h2>System Dashboard</h2>
+      <p>Monitor all system activity and manage Management / Administrator accounts.</p>
+    </div>
+
+    <div class="filter-pills" id="tabPills">
+      <button type="button" class="pill active" data-tab="activity">Activity Log</button>
+      <button type="button" class="pill" data-tab="staff">Manage Staff</button>
+      <button type="button" class="pill" data-tab="recipients">Report Recipients</button>
+    </div>
+
+    <!-- ================= ACTIVITY LOG TAB ================= -->
+    <div id="tabActivity" class="dash-tab">
+      <div class="filter-pills" id="eventPills">
+        <button type="button" class="pill active" data-event="all">All</button>
+        <button type="button" class="pill" data-event="login">Logins</button>
+        <button type="button" class="pill" data-event="booking">Bookings</button>
+        <button type="button" class="pill" data-event="staff">Staff</button>
+      </div>
+
+      <div class="dash-table-card">
+        <div class="dash-table-scroll">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Description</th>
+                <th>Actor</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="activityTableBody">
+              <tr><td colspan="4" class="dash-loading">Loading activity…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dash-pagination">
+          <span id="activityPageSummary">Showing 0 of 0 events</span>
+          <div class="page-buttons" id="activityPageButtons"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MANAGE STAFF TAB ================= -->
+    <div id="tabStaff" class="dash-tab" hidden>
+      <div class="dash-table-card staff-form-card">
+        <h3>Create Staff Account</h3>
+        <form id="createStaffForm" class="staff-form">
+          <div class="field">
+            <label for="newStaffEmail">Email</label>
+            <input type="email" id="newStaffEmail" placeholder="name@nihss.edu.sc" required>
+          </div>
+          <div class="field">
+            <label for="newStaffPassword">Temporary Password</label>
+            <input type="password" id="newStaffPassword" placeholder="Set an initial password" required minlength="6">
+          </div>
+          <div class="field">
+            <label for="newStaffRole">Role</label>
+            <select id="newStaffRole">
+              <option value="management">Management</option>
+              <option value="administrator">Administrator</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" id="createStaffBtn">Create Account</button>
+        </form>
+        <div class="form-msg" id="staffFormMsg"></div>
+      </div>
+
+      <div class="dash-table-card">
+        <div class="dash-table-scroll">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="staffTableBody">
+              <tr><td colspan="4" class="dash-loading">Loading staff…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= REPORT RECIPIENTS TAB ================= -->
+    <div id="tabRecipients" class="dash-tab" hidden>
+      <div class="dash-table-card staff-form-card">
+        <h3>Add Report Recipient</h3>
+        <p class="dash-sub" style="margin-bottom:14px;">Everyone on this list receives an automatic monthly email summarizing that month's bookings.</p>
+        <form id="addRecipientForm" class="recipient-form">
+          <div class="field">
+            <label for="newRecipientEmail">Email Address</label>
+            <input type="email" id="newRecipientEmail" placeholder="name@nihss.edu.sc" required>
+          </div>
+          <button type="submit" class="btn btn-primary" id="addRecipientBtn">Add Recipient</button>
+        </form>
+        <div class="form-msg" id="recipientFormMsg"></div>
+      </div>
+
+      <div class="dash-table-card">
+        <div class="dash-table-scroll">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Added</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="recipientsTableBody">
+              <tr><td colspan="3" class="dash-loading">Loading recipients…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>
