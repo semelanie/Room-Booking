@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIHSS Room Booking — National Institute of Health and Social Studies</title>
+<meta name="description" content="Reserve classrooms, meeting rooms, and facilities at NIHSS. Instant confirmation, easy management, 24/7 access.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="NIHSS logo" class="brand-mark">
+      <span>NIHSS <span class="brand-sub">Room Booking</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#rooms">Available Rooms</a>
+      <a href="#" data-open="checkModal">Check Availability</a>
+      <a href="#" data-open="myBookingsModal">My Bookings</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#" class="btn btn-outline btn-sm" data-open="bookModal">Reserve Your Space</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <span class="hero-eyebrow">National Institute of Health and Social Studies</span>
+    <h1>Book Meeting Rooms &amp; Classrooms Effortlessly</h1>
+    <p class="lede">Streamline your facility bookings with our easy-to-use room reservation system. Find and reserve classrooms, meeting rooms, and spaces that fit your needs.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-gold" data-open="bookModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        Book Now
+      </a>
+      <a href="#rooms" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        View Rooms
+      </a>
+    </div>
+    <p class="hero-meta"><span>Instant confirmation</span><span>Easy management</span><span>24/7 access</span></p>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">System Features</span>
+      <h2>Powerful Booking Management</h2>
+      <p>Our comprehensive facility booking system streamlines the entire reservation process.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-num">01</span>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5M3 17l9 5 9-5"/></svg></div>
+        <h3>Online Submission</h3>
+        <p>Submit facility booking requests anytime, anywhere through our convenient online portal. No paperwork required.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">02</span>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Automated Approval</h3>
+        <p>Streamlined workflow sends requests to appropriate reviewers. Track status and receive automated updates instantly.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">03</span>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 14h2m4 0h2M8 17h2"/></svg></div>
+        <h3>Calendar Scheduling</h3>
+        <p>View real-time availability on an interactive calendar. Book time slots that work for your schedule.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">04</span>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <h3>Email Notifications</h3>
+        <p>Stay informed with automatic email alerts for submissions, approvals, rejections, and reminders.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">05</span>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-7"/><path d="M2 20h20"/></svg></div>
+        <h3>Administrative Reporting</h3>
+        <p>Generate detailed reports on bookings, usage patterns, and facility utilization for better planning.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">06</span>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6M9 8h1"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg></div>
+        <h3>Audit Logs</h3>
+        <p>Complete tracking of all booking activities, changes, and administrative actions for accountability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROOMS ================= -->
+<section class="rooms-section" id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Facilities</span>
+      <h2>Available Rooms &amp; Spaces</h2>
+      <p>Choose from a variety of well-equipped rooms and spaces to meet your needs.</p>
+    </div>
+
+    <div class="rooms-grid" id="roomsGrid">
+      <!-- room 1 -->
+      <article class="ticket room-1 reveal">
+        <div class="ticket-media">
+          <span class="stamp">Available</span>
+          <span class="cap-badge">Up to 10 people</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M15 4v5h5"/></svg>
+        </div>
+        <div class="ticket-perf"></div>
+        <div class="ticket-body">
+          <span class="ticket-cat">Classroom · NIHSS-01</span>
+          <h3>Classroom A</h3>
+          <p>Perfect for small training sessions, interviews, and intimate meetings.</p>
+          <a href="#" class="btn btn-primary btn-sm btn-block" data-open="bookModal" data-room="Classroom A">Book Now</a>
+        </div>
+      </article>
+
+      <!-- room 2 -->
+      <article class="ticket room-2 reveal">
+        <div class="ticket-media">
+          <span class="stamp">Available</span>
+          <span class="cap-badge">Up to 20 people</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M15 4v5h5"/></svg>
+        </div>
+        <div class="ticket-perf"></div>
+        <div class="ticket-body">
+          <span class="ticket-cat">Classroom · NIHSS-02</span>
+          <h3>Classroom B</h3>
+          <p>Ideal for medium-sized workshops, seminars, and team meetings.</p>
+          <a href="#" class="btn btn-primary btn-sm btn-block" data-open="bookModal" data-room="Classroom B">Book Now</a>
+        </div>
+      </article>
+
+      <!-- room 3 -->
+      <article class="ticket room-3 reveal">
+        <div class="ticket-media">
+          <span class="stamp">Available</span>
+          <span class="cap-badge">Up to 20 people</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </div>
+        <div class="ticket-perf"></div>
+        <div class="ticket-body">
+          <span class="ticket-cat">Meeting Room · NIHSS-03</span>
+          <h3>Boardroom</h3>
+          <p>Professional setting for board meetings, presentations, and conferences.</p>
+          <a href="#" class="btn btn-primary btn-sm btn-block" data-open="bookModal" data-room="Boardroom">Book Now</a>
+        </div>
+      </article>
+
+      <!-- room 4 -->
+      <article class="ticket room-4 reveal">
+        <div class="ticket-media">
+          <span class="stamp">Available</span>
+          <span class="cap-badge">Up to 20 people</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        </div>
+        <div class="ticket-perf"></div>
+        <div class="ticket-body">
+          <span class="ticket-cat">Computer Room · NIHSS-04</span>
+          <h3>Computer Lab</h3>
+          <p>Fully equipped with computers for training sessions and IT workshops.</p>
+          <a href="#" class="btn btn-primary btn-sm btn-block" data-open="bookModal" data-room="Computer Lab">Book Now</a>
+        </div>
+      </article>
+
+      <!-- room 5 -->
+      <article class="ticket room-5 reveal">
+        <div class="ticket-media">
+          <span class="stamp">Available</span>
+          <span class="cap-badge">Catering space</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16M6 21V9a2 2 0 0 1 2-2h1V4h6v3h1a2 2 0 0 1 2 2v12"/><path d="M9 12h6"/></svg>
+        </div>
+        <div class="ticket-perf"></div>
+        <div class="ticket-body">
+          <span class="ticket-cat">Pantry · NIHSS-05</span>
+          <h3>Pantry</h3>
+          <p>Kitchen facilities for catering, coffee breaks, and informal gatherings.</p>
+          <a href="#" class="btn btn-primary btn-sm btn-block" data-open="bookModal" data-room="Pantry">Book Now</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="rooms-more reveal">
+      <div>
+        <h4>View All Rooms</h4>
+        <p>See our complete range of facilities and capacities.</p>
+      </div>
+      <a href="#rooms" class="btn btn-outline btn-sm">Browse All</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Space</span>
+      <h2>Explore Our Facilities</h2>
+      <p>Get a glimpse of our modern facilities and welcoming spaces designed for learning and collaboration.</p>
+    </div>
+
+    <div class="gallery-wrap">
+      <div class="gallery-track" id="galleryTrack">
+        <figure class="gallery-slide g-1">
+          <div class="gallery-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div>
+          <figcaption class="gallery-cap"><span>Classroom A</span><p>Bright, quiet space for small-group sessions</p></figcaption>
+        </figure>
+        <figure class="gallery-slide g-2">
+          <div class="gallery-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div>
+          <figcaption class="gallery-cap"><span>Classroom B</span><p>Flexible seating for workshops &amp; seminars</p></figcaption>
+        </figure>
+        <figure class="gallery-slide g-3">
+          <div class="gallery-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="11" rx="2"/></svg></div>
+          <figcaption class="gallery-cap"><span>Boardroom</span><p>A professional setting for board-level meetings</p></figcaption>
+        </figure>
+        <figure class="gallery-slide g-4">
+          <div class="gallery-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="2"/></svg></div>
+          <figcaption class="gallery-cap"><span>Computer Lab</span><p>Fully equipped for IT training and workshops</p></figcaption>
+        </figure>
+        <figure class="gallery-slide g-5">
+          <div class="gallery-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16M6 21V9a2 2 0 0 1 2-2h1V4h6v3h1a2 2 0 0 1 2 2v12"/></svg></div>
+          <figcaption class="gallery-cap"><span>Pantry</span><p>Kitchen facilities for catering and coffee breaks</p></figcaption>
+        </figure>
+        <figure class="gallery-slide g-6">
+          <div class="gallery-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <figcaption class="gallery-cap"><span>Common Areas</span><p>Welcoming shared spaces across the campus</p></figcaption>
+        </figure>
+      </div>
+      <div class="gallery-nav">
+        <button id="galleryPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button id="galleryNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BANNER ================= -->
+<section>
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Ready to Book Your Space?</h2>
+        <p>Reserve your meeting room, classroom, or facility today. It's quick, easy, and only takes a few minutes.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-gold" data-open="bookModal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          Book Now
+        </a>
+        <a href="#" class="btn btn-ghost" data-open="checkModal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          Check Availability
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUIDELINES + HELP ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Important Information</span>
+      <h2>Booking Guidelines</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <h3>Before You Book</h3>
+        <div class="guideline">
+          <span class="guideline-num">01</span>
+          <div><h4>Lead Time</h4><p>Book at least 24 hours in advance to ensure availability.</p></div>
+        </div>
+        <div class="guideline">
+          <span class="guideline-num">02</span>
+          <div><h4>Approval Process</h4><p>All bookings require approval. You'll receive updates on your booking status.</p></div>
+        </div>
+        <div class="guideline">
+          <span class="guideline-num">03</span>
+          <div><h4>Cancellation</h4><p>Cancel up to 24 hours before your booking for a full refund.</p></div>
+        </div>
+        <a href="#" class="btn btn-outline btn-sm">Read Full Guidelines</a>
+      </div>
+
+      <div class="info-card reveal" id="contact">
+        <h3>Need Help?</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin:-10px 0 18px;">Have questions? Our team is here to help you with any inquiries about room bookings.</p>
+        <div class="help-row">
+          <div class="help-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+          <div><h4>Phone</h4><p>+1 (555) 123-4567</p></div>
+        </div>
+        <div class="help-row">
+          <div class="help-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
+          <div><h4>Email</h4><p>bookings@nihss.edu</p></div>
+        </div>
+        <div class="help-row">
+          <div class="help-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><h4>Office Hours</h4><p>Mon – Fri: 8:00 AM – 5:00 PM</p></div>
+        </div>
+        <a href="mailto:bookings@nihss.edu" class="btn btn-primary btn-sm" style="margin-top:20px;">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <img src="assets/logo.png" alt="NIHSS logo" class="brand-mark">
+          <span>NIHSS <span class="brand-sub" style="color:rgba(255,255,255,.5);">Room Booking</span></span>
+        </a>
+        <p>National Institute of Health and Social Studies room booking system. Reserve classrooms, meeting rooms, and facilities easily.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#rooms">Available Rooms</a></li>
+          <li><a href="#" data-open="bookModal">Book a Room</a></li>
+          <li><a href="#" data-open="checkModal">Check Availability</a></li>
+          <li><a href="#" data-open="myBookingsModal">My Bookings</a></li>
+          <li><a href="#">Guidelines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">About NIHSS</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Admin Login</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p>Mont Fleuri<br>Mahé, Seychelles</p>
+        <p>+248</p>
+        <p>bookings@nihss.edu.sc</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 NIHSS Room Booking System. All rights reserved.</span>
+      <span class="legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= BOOK MODAL ================= -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3>Reserve Your Space</h3>
+        <p>Fill in the details and we'll confirm your booking status by email.</p>
+      </div>
+      <button class="modal-close" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <form id="bookForm">
+        <div class="field">
+          <label for="roomSelect">Room / Space</label>
+          <select id="roomSelect" required></select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bookDate">Date</label>
+            <input type="date" id="bookDate" required>
+          </div>
+          <div class="field"></div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="startTime">Start time</label>
+            <input type="time" id="startTime" required>
+          </div>
+          <div class="field">
+            <label for="endTime">End time</label>
+            <input type="time" id="endTime" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone">
+          </div>
+        </div>
+        <div class="field">
+          <label for="purpose">Purpose of booking</label>
+          <textarea id="purpose" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <div class="form-msg" id="bookMsg"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CHECK AVAILABILITY MODAL ================= -->
+<div class="modal-overlay" id="checkModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3>Check Availability</h3>
+        <p>Pick a room and date to see existing bookings.</p>
+      </div>
+      <button class="modal-close" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <form id="checkForm">
+        <div class="field">
+          <label for="checkRoom">Room / Space</label>
+          <select id="checkRoom" required></select>
+        </div>
+        <div class="field">
+          <label for="checkDate">Date</label>
+          <input type="date" id="checkDate" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Check</button>
+      </form>
+      <div id="checkResults" class="bookings-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MY BOOKINGS MODAL ================= -->
+<div class="modal-overlay" id="myBookingsModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3>My Bookings</h3>
+        <p>Look up requests by the email you booked with.</p>
+      </div>
+      <button class="modal-close" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <form id="myBookingsForm">
+        <div class="field">
+          <label for="lookupEmail">Email address</label>
+          <input type="email" id="lookupEmail" required placeholder="you@example.com">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Find My Bookings</button>
+      </form>
+      <div id="myBookingsResults" class="bookings-list"></div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

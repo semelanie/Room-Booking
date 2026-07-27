@@ -1,0 +1,6 @@
+{
+  "name": "nihss-room-booking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NIHSS Room Booking — static site with Supabase-backed bookings, deployable on Vercel."
+}
