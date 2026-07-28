@@ -237,6 +237,7 @@ function renderRecipients(rows) {
   tbody.innerHTML = rows.length
     ? rows.map(r => `
       <tr>
+        <td>${r.name || '<span class="dash-sub">—</span>'}</td>
         <td>${r.email}</td>
         <td class="dash-sub">${new Date(r.created_at).toLocaleDateString()}</td>
         <td class="dash-actions">
@@ -246,7 +247,7 @@ function renderRecipients(rows) {
         </td>
       </tr>
     `).join('')
-    : '<tr><td colspan="3" class="dash-loading">No report recipients yet.</td></tr>';
+    : '<tr><td colspan="4" class="dash-loading">No report recipients yet.</td></tr>';
 
   tbody.querySelectorAll('.row-action').forEach(btn => {
     btn.addEventListener('click', async () => {
@@ -263,12 +264,13 @@ document.getElementById('addRecipientForm')?.addEventListener('submit', async (e
   const msg = document.getElementById('recipientFormMsg');
   msg.className = 'form-msg';
 
+  const name = document.getElementById('newRecipientName').value.trim();
   const email = document.getElementById('newRecipientEmail').value.trim();
   const btn = document.getElementById('addRecipientBtn');
   btn.disabled = true;
   btn.textContent = 'Adding…';
 
-  const { error } = await supabase.from('report_recipients').insert({ email });
+  const { error } = await supabase.from('report_recipients').insert({ name: name || null, email });
 
   btn.disabled = false;
   btn.textContent = 'Add Recipient';
