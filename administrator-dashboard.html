@@ -116,6 +116,10 @@
         <p class="dash-sub" style="margin-bottom:14px;">Everyone on this list receives an automatic monthly email summarizing that month's bookings.</p>
         <form id="addRecipientForm" class="recipient-form">
           <div class="field">
+            <label for="newRecipientName">Name</label>
+            <input type="text" id="newRecipientName" placeholder="e.g. Director NIHSS">
+          </div>
+          <div class="field">
             <label for="newRecipientEmail">Email Address</label>
             <input type="email" id="newRecipientEmail" placeholder="name@nihss.edu.sc" required>
           </div>
@@ -129,13 +133,14 @@
           <table class="dash-table">
             <thead>
               <tr>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Added</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody id="recipientsTableBody">
-              <tr><td colspan="3" class="dash-loading">Loading recipients…</td></tr>
+              <tr><td colspan="4" class="dash-loading">Loading recipients…</td></tr>
             </tbody>
           </table>
         </div>
