@@ -6,6 +6,8 @@
 <title>NIHSS Room Booking — National Institute of Health and Social Studies</title>
 <meta name="description" content="Reserve classrooms, meeting rooms, and facilities at NIHSS. Instant confirmation, easy management, 24/7 access.">
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preload" as="image" href="assets/logo.png">
+<link rel="preload" as="image" href="assets/hero-building.jpg">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -142,7 +144,7 @@
     <div class="rooms-grid" id="roomsGrid">
       <!-- room 1 -->
       <article class="ticket room-1 reveal">
-        <div class="ticket-media has-photo" style="background-image:url('assets/rooms/classroom-10.jpg')">
+        <div class="ticket-media has-photo"><img src="assets/rooms/classroom-10.jpg" alt="Classroom (10) — up to 10 people" loading="lazy" decoding="async">
           <span class="stamp">Available</span>
           <span class="cap-badge">Up to 10 people</span>
         </div>
@@ -157,7 +159,7 @@
 
       <!-- room 2 -->
       <article class="ticket room-2 reveal">
-        <div class="ticket-media has-photo" style="background-image:url('assets/rooms/classroom-20.jpg')">
+        <div class="ticket-media has-photo"><img src="assets/rooms/classroom-20.jpg" alt="Classroom (20) — up to 20 people" loading="lazy" decoding="async">
           <span class="stamp">Available</span>
           <span class="cap-badge">Up to 20 people</span>
         </div>
@@ -172,7 +174,7 @@
 
       <!-- room 3 -->
       <article class="ticket room-3 reveal">
-        <div class="ticket-media has-photo" style="background-image:url('assets/rooms/classroom-25.jpg')">
+        <div class="ticket-media has-photo"><img src="assets/rooms/classroom-25.jpg" alt="Classroom (25) — up to 25 people" loading="lazy" decoding="async">
           <span class="stamp">Available</span>
           <span class="cap-badge">Up to 25 people</span>
         </div>
@@ -187,7 +189,7 @@
 
       <!-- room 4 -->
       <article class="ticket room-4 reveal">
-        <div class="ticket-media has-photo" style="background-image:url('assets/rooms/classroom-30.jpg')">
+        <div class="ticket-media has-photo"><img src="assets/rooms/classroom-30.jpg" alt="Classroom (30) — up to 30 people" loading="lazy" decoding="async">
           <span class="stamp">Available</span>
           <span class="cap-badge">Up to 30 people</span>
         </div>
@@ -202,7 +204,7 @@
 
       <!-- room 5 -->
       <article class="ticket room-5 reveal">
-        <div class="ticket-media has-photo" style="background-image:url('assets/rooms/boardroom.jpg')">
+        <div class="ticket-media has-photo"><img src="assets/rooms/boardroom.jpg" alt="Meeting Room (20) — the boardroom" loading="lazy" decoding="async">
           <span class="stamp">Available</span>
           <span class="cap-badge">Up to 20 people</span>
         </div>
@@ -217,7 +219,7 @@
 
       <!-- room 6 -->
       <article class="ticket room-6 reveal">
-        <div class="ticket-media has-photo" style="background-image:url('assets/rooms/computer-room.jpg')">
+        <div class="ticket-media has-photo"><img src="assets/rooms/computer-room.jpg" alt="Computer Room (20)" loading="lazy" decoding="async">
           <span class="stamp">Available</span>
           <span class="cap-badge">Up to 20 people</span>
         </div>
@@ -271,27 +273,39 @@
     <div class="gallery-wrap">
       <div class="gallery-track" id="galleryTrack">
         <figure class="gallery-slide">
-          <div class="gallery-img" style="background-image:url('assets/rooms/classroom-20.jpg')"></div>
+          <button type="button" class="gallery-img-btn" data-lightbox data-src="assets/rooms/classroom-20.jpg" data-title="Classroom" data-desc="Bright, quiet spaces for small and large groups alike">
+            <img class="gallery-img" src="assets/rooms/classroom-20.jpg" alt="Classroom" loading="lazy" decoding="async">
+          </button>
           <figcaption class="gallery-cap"><span>Classroom</span><p>Bright, quiet spaces for small and large groups alike</p></figcaption>
         </figure>
         <figure class="gallery-slide">
-          <div class="gallery-img" style="background-image:url('assets/rooms/boardroom.jpg')"></div>
+          <button type="button" class="gallery-img-btn" data-lightbox data-src="assets/rooms/boardroom.jpg" data-title="Boardroom" data-desc="A professional setting for board-level meetings">
+            <img class="gallery-img" src="assets/rooms/boardroom.jpg" alt="Boardroom" loading="lazy" decoding="async">
+          </button>
           <figcaption class="gallery-cap"><span>Boardroom</span><p>A professional setting for board-level meetings</p></figcaption>
         </figure>
         <figure class="gallery-slide">
-          <div class="gallery-img" style="background-image:url('assets/rooms/computer-room.jpg')"></div>
+          <button type="button" class="gallery-img-btn" data-lightbox data-src="assets/rooms/computer-room.jpg" data-title="Computer Room" data-desc="Fully equipped for IT training and workshops">
+            <img class="gallery-img" src="assets/rooms/computer-room.jpg" alt="Computer Room" loading="lazy" decoding="async">
+          </button>
           <figcaption class="gallery-cap"><span>Computer Room</span><p>Fully equipped for IT training and workshops</p></figcaption>
         </figure>
         <figure class="gallery-slide">
-          <div class="gallery-img" style="background-image:url('assets/rooms/computer-room-cubicle.jpg')"></div>
+          <button type="button" class="gallery-img-btn" data-lightbox data-src="assets/rooms/computer-room-cubicle.jpg" data-title="Computer Room Cubicles" data-desc="Individual workstations for focused, hands-on training">
+            <img class="gallery-img" src="assets/rooms/computer-room-cubicle.jpg" alt="Computer Room Cubicles" loading="lazy" decoding="async">
+          </button>
           <figcaption class="gallery-cap"><span>Computer Room Cubicles</span><p>Individual workstations for focused, hands-on training</p></figcaption>
         </figure>
         <figure class="gallery-slide">
-          <div class="gallery-img" style="background-image:url('assets/rooms/student-sitting-area.jpg')"></div>
+          <button type="button" class="gallery-img-btn" data-lightbox data-src="assets/rooms/student-sitting-area.jpg" data-title="Student Sitting Area" data-desc="Welcoming shared spaces across the campus">
+            <img class="gallery-img" src="assets/rooms/student-sitting-area.jpg" alt="Student Sitting Area" loading="lazy" decoding="async">
+          </button>
           <figcaption class="gallery-cap"><span>Student Sitting Area</span><p>Welcoming shared spaces across the campus</p></figcaption>
         </figure>
         <figure class="gallery-slide">
-          <div class="gallery-img" style="background-image:url('assets/rooms/floor-guide.jpg')"></div>
+          <button type="button" class="gallery-img-btn" data-lightbox data-src="assets/rooms/floor-guide.jpg" data-title="Floor Guide" data-desc="Find your way around with ease">
+            <img class="gallery-img" src="assets/rooms/floor-guide.jpg" alt="Floor Guide" loading="lazy" decoding="async">
+          </button>
           <figcaption class="gallery-cap"><span>Floor Guide</span><p>Find your way around with ease</p></figcaption>
         </figure>
       </div>
@@ -443,7 +457,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#top" class="brand">
-          <img src="assets/logo.png" alt="NIHSS logo" class="brand-mark">
+          <img src="assets/logo.png" alt="NIHSS logo" class="brand-mark" loading="lazy">
           <span>NIHSS <span class="brand-sub" style="color:rgba(255,255,255,.5);">Room Booking</span></span>
         </a>
         <p>National Institute of Health and Social Studies room booking system. Reserve classrooms, meeting rooms, and facilities easily.</p>
@@ -759,6 +773,26 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- ================= GALLERY LIGHTBOX ================= -->
+<div class="lightbox-overlay" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <button type="button" class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img id="lightboxImg" src="" alt="">
+    <figcaption>
+      <span id="lightboxTitle"></span>
+      <p id="lightboxDesc"></p>
+    </figcaption>
+  </figure>
+  <button type="button" class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
 </div>
 
 <script type="module" src="js/main.js"></script>
