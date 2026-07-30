@@ -307,15 +307,23 @@ async function renderCalendar() {
 }
 
 function renderSlots() {
+  const bookBtn = document.getElementById('slotsBookBtn');
+
   if (!selectedDate) {
     slotsSubtext.textContent = 'Select a date from the calendar to view available time slots.';
     slotsEmpty.hidden = false;
     slotsList.hidden = true;
+    if (bookBtn) bookBtn.hidden = true;
     return;
   }
 
   const slots = bookingsOnDate(selectedDate);
   slotsSubtext.textContent = `Existing bookings on ${selectedDate}, filtered by the room type selected on the left.`;
+
+  if (bookBtn) {
+    bookBtn.hidden = false;
+    bookBtn.textContent = `Book ${selectedDate}`;
+  }
 
   if (!supabase) {
     slotsEmpty.hidden = false;
@@ -342,6 +350,21 @@ function renderSlots() {
     </div>
   `).join('');
 }
+
+document.getElementById('slotsBookBtn')?.addEventListener('click', () => {
+  if (!selectedDate) return;
+  closeModal(document.getElementById('checkModal'));
+  openModal('bookModal');
+  const activityDateInput = document.getElementById('activityDate');
+  const bookDateInput = document.getElementById('bookDate');
+  if (activityDateInput) activityDateInput.value = selectedDate;
+  if (bookDateInput) bookDateInput.value = selectedDate;
+  const type = filterRoomType.value;
+  if (type) {
+    const box = document.querySelector(`#resourceGrid input[value="${type}"]`);
+    if (box) box.checked = true;
+  }
+});
 
 calPrev?.addEventListener('click', () => {
   calMonth--;
@@ -397,10 +420,13 @@ myBookingsForm?.addEventListener('submit', async (e) => {
     <div class="booking-row">
       <div class="top">
         <span>${b.activity_name}</span>
-        <span class="status-pill status-${b.status}">${b.status}</span>
+        <span class="status-pill status-${b.status}">${b.status === 'pending' ? 'Under review' : b.status}</span>
       </div>
       <div class="meta">${(b.resources_requested || []).join(', ')}</div>
       <div class="meta">${b.activity_date} · ${b.start_time.slice(0,5)}–${b.end_time.slice(0,5)}</div>
     </div>
-  `).join('');
+  `).join('') + '<p class="my-bookings-note">A summary has also been emailed to you.</p>';
+
+  supabase.functions.invoke('send-my-bookings-email', { body: { email } })
+    .catch(err => console.warn('Bookings summary email not sent:', err.message));
 });
