@@ -32,6 +32,45 @@ document.getElementById('galleryPrev')?.addEventListener('click', () => {
   track.scrollBy({ left: -360, behavior: 'smooth' });
 });
 
+/* ---------------- gallery lightbox ---------------- */
+const lightboxTriggers = [...document.querySelectorAll('[data-lightbox]')];
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxDesc = document.getElementById('lightboxDesc');
+let lightboxIndex = 0;
+
+function openLightbox(index) {
+  lightboxIndex = (index + lightboxTriggers.length) % lightboxTriggers.length;
+  const trigger = lightboxTriggers[lightboxIndex];
+  lightboxImg.src = trigger.dataset.src;
+  lightboxImg.alt = trigger.dataset.title;
+  lightboxTitle.textContent = trigger.dataset.title;
+  lightboxDesc.textContent = trigger.dataset.desc;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+lightboxTriggers.forEach((trigger, i) => {
+  trigger.addEventListener('click', () => openLightbox(i));
+});
+document.getElementById('lightboxClose')?.addEventListener('click', closeLightbox);
+document.getElementById('lightboxNext')?.addEventListener('click', () => openLightbox(lightboxIndex + 1));
+document.getElementById('lightboxPrev')?.addEventListener('click', () => openLightbox(lightboxIndex - 1));
+lightbox?.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (!lightbox?.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
+  if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
+});
+
 /* ---------------- modals ---------------- */
 const overlays = document.querySelectorAll('.modal-overlay');
 
