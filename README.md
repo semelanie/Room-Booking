@@ -25,6 +25,8 @@ js/supabase-config.js            your Supabase URL + anon key go here
 supabase/schema.sql              tables, roles, activity log, triggers, seed data
 supabase/functions/admin-manage-users/index.ts   Edge Function for creating/removing staff logins
 supabase/functions/monthly-report/index.ts       Edge Function that emails the monthly booking summary
+supabase/functions/send-booking-email/index.ts   Edge Function that emails approve/reject/reschedule notices
+supabase/functions/send-my-bookings-email/index.ts  Edge Function behind the public "My Bookings" email summary
 assets/                          logo + hero photo
 vercel.json                      Vercel config (just cleanUrls, nothing fancy)
 ```
@@ -147,6 +149,66 @@ your project's service role key automatically once deployed.
   Function, which re-checks the caller is really an administrator on every
   call. **Resetting a password** doesn't need the Edge Function at all — it
   just sends a normal Supabase password-reset email.
+
+## "My Bookings" email summary
+
+The public **My Bookings** lookup (top nav / footer) now emails a summary
+alongside showing results on screen — every booking on file for that email,
+including ones still **pending review**, so people don't have to keep the
+tab open to check back later.
+
+This is a fourth Edge Function, `send-my-bookings-email` — reuses the same
+Resend secrets as the other two:
+
+```bash
+supabase functions deploy send-my-bookings-email
+```
+
+Unlike the other two email functions, this one is **not** gated behind a
+staff login — it's called directly from the public site, the same as the
+on-screen lookup it accompanies. It only emails whatever address the visitor
+typed in, and only sends if that email actually has at least one booking on
+file (so it can't be used to spam an arbitrary inbox with an empty message).
+
+## Status-change emails (approve / reject / reschedule)
+
+Whenever management approves, rejects, or reschedules a booking on the
+dashboard, the requester now gets an email automatically — no manual step,
+no waiting for the monthly summary.
+
+This uses a third Edge Function, `send-booking-email`, and the **same**
+Resend account/secrets as the monthly report below — so if you've already
+set those up, this is just one more deploy:
+
+```bash
+supabase functions deploy send-booking-email
+```
+
+(It reuses `RESEND_API_KEY` and `REPORT_FROM_EMAIL` — no new secrets to set.)
+
+Each of the three emails has its own template (all in
+`supabase/functions/send-booking-email/index.ts`, easy to edit — plain HTML,
+no templating engine):
+- **Approved** — confirms the date/time/room and asks them to arrive a
+  few minutes early
+- **Rejected** — a polite note that the request couldn't be approved,
+  with an invitation to submit a new request
+- **Rescheduled** — shown when management uses the new **Reschedule**
+  action (pencil icon, next to Approve/Reject or Cancel) to change a
+  booking's date or time — the email includes the updated details
+
+If `send-booking-email` isn't deployed yet, approving/rejecting/rescheduling
+still works — the dashboard just logs a warning in the browser console
+instead of failing.
+
+## Booking directly from the calendar
+
+**Check Availability** (on the homepage) now doubles as a live booking
+calendar — the month grid and "Available Time Slots" panel were already
+reading straight from the `bookings` table, so nothing new was needed there.
+What's new: selecting a date now shows a **Book This Date** button, which
+closes the calendar and opens the booking form with that date (and the
+selected room type, if any) already filled in.
 
 ## Monthly report email
 
