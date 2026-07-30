@@ -226,6 +226,11 @@ section{ padding:88px 0; }
   display:flex; align-items:center; justify-content:center; color:#fff;
 }
 .ticket-media svg{ width:38%; height:38%; opacity:.9; }
+.ticket-media.has-photo{ background-size:cover; background-position:center; }
+.ticket-media.has-photo::before{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(0,0,0,.28) 100%);
+}
 .ticket-media .stamp{
   position:absolute; top:14px; right:14px; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
   letter-spacing:.12em; text-transform:uppercase; color:#fff; border:1.5px solid rgba(255,255,255,.8);
@@ -291,9 +296,8 @@ section{ padding:88px 0; }
   .gallery-slide{ flex-basis:78vw; }
 }
 .gallery-img{
-  aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; color:#fff;
+  aspect-ratio:4/3; background-size:cover; background-position:center;
 }
-.gallery-img svg{ width:34%; height:34%; opacity:.9; }
 .gallery-cap{ padding:16px 18px; }
 .gallery-cap span{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--brand2); text-transform:uppercase; letter-spacing:.08em; }
 .gallery-cap p{ margin:6px 0 0; font-size:14.5px; font-weight:500; }
@@ -304,13 +308,6 @@ section{ padding:88px 0; }
 }
 .gallery-nav button:hover{ background:var(--brand-tint); transform:translateY(-1px); }
 .gallery-nav svg{ width:18px; height:18px; }
-
-.g-1 .gallery-img{ background:linear-gradient(135deg,#D9A73B,#A9762A); }
-.g-2 .gallery-img{ background:linear-gradient(135deg,#B4813F,#7A5726); }
-.g-3 .gallery-img{ background:linear-gradient(135deg,#A85C34,#723D22); }
-.g-4 .gallery-img{ background:linear-gradient(135deg,#8A6B45,#5A4326); }
-.g-5 .gallery-img{ background:linear-gradient(135deg,#8A6B3D,#4F3A1E); }
-.g-6 .gallery-img{ background:linear-gradient(135deg,#4A3B28,#241C10); }
 
 /* ---------- CTA banner ---------- */
 .cta-banner{
